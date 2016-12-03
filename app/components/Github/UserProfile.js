@@ -1,12 +1,7 @@
 import React from 'react';
 
-var UserProfile = React.createClass({
-    propTypes: {
-        username: React.PropTypes.string.isRequired,
-        bio: React.PropTypes.object.isRequired
-    },
-    render: function() {
-        console.log('REPOS', this.props.bio);
+class UserProfile extends React.Component {
+    render() {
         return (
             <div>
                 {this.props.bio.avatar_url && <li className="list-group-item"> <img src={this.props.bio.avatar_url} /></li>}
@@ -16,6 +11,11 @@ var UserProfile = React.createClass({
             </div>
         );
     }
-});
+}
 
-module.exports = UserProfile;
+UserProfile.propTypes = {
+    username: React.PropTypes.string.isRequired,
+    bio: React.PropTypes.object.isRequired
+};
+
+export default UserProfile;
